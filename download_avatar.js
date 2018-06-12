@@ -6,6 +6,10 @@ var name = process.argv[3];
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
+if (!owner || !name) {
+  console.log("Please enter owner and name");
+} else {
+
 function getRepoContributors(repoOwner, repoName, cb) {
   var options = {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
@@ -65,3 +69,4 @@ getRepoContributors(owner, name, function(err, result) {
   //return paths avatars;
   // console.log("Result:", result);
 });
+}
