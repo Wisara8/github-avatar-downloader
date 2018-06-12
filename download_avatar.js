@@ -5,11 +5,11 @@ var owner = process.argv[2, 3];
 var name = process.argv[3];
 
 console.log('Welcome to the GitHub Avatar Downloader!');
-
+// check for empty parameters
 if (!owner || !name) {
   console.log("Please enter owner and name");
 } else {
-
+  //grabs url and avatars from github
   function getRepoContributors(repoOwner, repoName, cb) {
     var options = {
       url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
@@ -32,7 +32,7 @@ if (!owner || !name) {
       // return paths;
     });
   }
-
+  //download images given url and filepath from getRepoContributors
   function downloadImageByURL(url, filePath) {
       request.get(url)
       .on('error', function(err) {
